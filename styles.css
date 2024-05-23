@@ -1,0 +1,88 @@
+/* Created by Tivotal */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #222;
+}
+
+.clock {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  box-shadow: 1px 1px 5px #000, inset 1px 1px 5px #000;
+  border: 10px solid #222;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock::before {
+  position: absolute;
+  content: "";
+  width: 80%;
+  height: 80%;
+  background: #222;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.clock::after {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: #ff0000;
+  z-index: 3;
+  border-radius: 50%;
+}
+
+.clock .mark {
+  width: 3px;
+  height: 90%;
+  background: #999;
+  position: absolute;
+  transform: rotate(calc(var(--i) * 30deg));
+}
+
+.clock .mark:nth-child(1),
+.clock .mark:nth-child(4) {
+  background: #4070f4;
+  width: 5px;
+}
+
+.clock .hand {
+  position: absolute;
+  width: 2px;
+  height: 30%;
+  background: #ff0000;
+  z-index: 2;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 50px;
+  transform-origin: bottom;
+}
+
+.clock .hand.min {
+  width: 4px;
+  height: 25%;
+  background: #fff;
+  transform: translate(-50%) rotate(40deg);
+}
+
+.clock .hand.hour {
+  width: 6px;
+  height: 20%;
+  background: #fff;
+  transform: translate(-50%) rotate(80deg);
+}
